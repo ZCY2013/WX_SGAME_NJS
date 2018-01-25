@@ -1,4 +1,4 @@
-## quickstart
+## 原微信小游戏readme.md
 
 ## 源码目录介绍
 ```
@@ -23,3 +23,4 @@
 └── main.js                                // 游戏入口主函数
 
 ```
+目标为添加coco2d引擎改造为flapy bird
