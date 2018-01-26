@@ -1,4 +1,4 @@
-import Player     from './player/index'
+import Bird     from './player/bird'
 import Enemy      from './npc/enemy'
 import BackGround from './runtime/background'
 import GameInfo   from './runtime/gameinfo'
@@ -18,14 +18,14 @@ export default class Main {
 
   restart() {
     databus.reset()
-
+    
     canvas.removeEventListener(
       'touchstart',
       this.touchHandler
     )
 
     this.bg       = new BackGround(ctx)
-    this.player   = new Player(ctx)
+    this.player   = new Bird(ctx)
     this.gameinfo = new GameInfo()
     this.music    = new Music()
 
@@ -142,10 +142,10 @@ export default class Main {
     this.update()
     this.render()
 
-    if ( databus.frame % 20 === 0 ) {
-      this.player.shoot()
-      this.music.playShoot()
-    }
+    // if ( databus.frame % 20 === 0 ) {
+    //   this.player.shoot()
+    //   this.music.playShoot()
+    // }
 
     // 游戏结束停止帧循环
     if ( databus.gameOver ) {
