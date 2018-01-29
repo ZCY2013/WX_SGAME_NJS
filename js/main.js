@@ -78,14 +78,6 @@ export default class Main {
     }
   }
 
-  judgeDetection(){
-    let that = this
-    if (this.player.isOutOfBound()){
-      databus.gameOver = true
-      break
-    }
-  }
-
   //游戏结束后的触摸事件处理逻辑
   touchEventHandler(e) {
      e.preventDefault()
@@ -111,19 +103,19 @@ export default class Main {
 
     this.bg.render(ctx)
 
-    databus.bullets
-           .concat(databus.enemys)
-           .forEach((item) => {
-              item.drawToCanvas(ctx)
-            })
+    // databus.bullets
+    //        .concat(databus.enemys)
+    //        .forEach((item) => {
+    //           item.drawToCanvas(ctx)
+    //         })
 
     this.player.drawToCanvas(ctx)
 
-    databus.animations.forEach((ani) => {
-      if ( ani.isPlaying ) {
-        ani.aniRender(ctx)
-      }
-    })
+    // databus.animations.forEach((ani) => {
+    //   if ( ani.isPlaying ) {
+    //     ani.aniRender(ctx)
+    //   }
+    // })
 
     this.gameinfo.renderGameScore(ctx, databus.score)
   }
@@ -139,10 +131,14 @@ export default class Main {
     //         })
 
     this.enemyGenerate()
-
+    this.judeBound()
     // this.collisionDetection()
   }
-
+  judeBound(){
+    if(this.player.isOutOfBound()){
+      databus.gameover = true
+    }
+  }
   // 实现游戏帧循环
   loop() {
     databus.frame++

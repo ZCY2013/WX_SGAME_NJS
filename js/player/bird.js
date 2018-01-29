@@ -35,8 +35,11 @@ export default class Bird extends Sprite {
     console.log(x)
   }
   isOutOfBound(){
-    if(this.x > screenWidth)
+    console.log(this.x)
+    console.log(screenWidth)
+    if (this.x > screenWidth)
     {
+      console.log("jude true")
       return true
     }
   }
