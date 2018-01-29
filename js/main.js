@@ -78,6 +78,14 @@ export default class Main {
     }
   }
 
+  judgeDetection(){
+    let that = this
+    if (this.player.isOutOfBound()){
+      databus.gameOver = true
+      break
+    }
+  }
+
   //游戏结束后的触摸事件处理逻辑
   touchEventHandler(e) {
      e.preventDefault()
@@ -123,12 +131,12 @@ export default class Main {
   // 游戏逻辑更新主函数
   update() {
     this.bg.update()
-
-    databus.bullets
-           .concat(databus.enemys)
-           .forEach((item) => {
-              item.update()
-            })
+    this.player.update()
+    // databus.bullets
+    //        .concat(databus.enemys)
+    //        .forEach((item) => {
+    //           item.update()
+    //         })
 
     this.enemyGenerate()
 

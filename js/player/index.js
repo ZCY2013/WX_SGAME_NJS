@@ -21,7 +21,7 @@ export default class Player extends Sprite {
     this.y = screenHeight - this.height - 30
 
     // 用于在手指移动的时候标识手指是否已经在飞机上了
-    this.touched = true
+    this.touched = false
 
     this.bullets = []
 
