@@ -26,17 +26,19 @@ export default class Bird extends Sprite {
   initEvent() {
     canvas.addEventListener('click', ((e) => {
       e.preventDefault()
-      this.speed = -100
-    }))   
+      // this.x = 160
+      console.log('click')
+    }).bind(this))
   }
   update(){
-    let speed = this.speed ++
-    let x = this.x ++
+    let speed = this.speed +0.1
+    let x = this.x
+    this.x = speed + x
     console.log(x)
   }
   isOutOfBound(){
-    console.log(this.x)
-    console.log(screenWidth)
+    // console.log(this.x)
+    // console.log(screenWidth)
     if (this.x > screenWidth)
     {
       console.log("jude true")
